@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "353711695219",
+    "project_id": "smartfood-ce8df",
+    "storage_bucket": "smartfood-ce8df.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:353711695219:android:9dffaf28d9e081631d5106",
+        "android_client_info": {
+          "package_name": "com.example.smartdelivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "353711695219-4ike90cepnme2lkhb68374dqr9agkasr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdFVEJ1tD5TFDGxC5cbokccnoNBGSa0ic"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "353711695219-4ike90cepnme2lkhb68374dqr9agkasr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
