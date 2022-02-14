@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:smartdelivery/HomePageScreen.dart';
+import 'package:smartdelivery/App.dart';
 import 'package:smartdelivery/LoginScreen.dart';
 import 'package:smartdelivery/Permission.dart';
 import 'package:smartdelivery/services/Service.dart';
@@ -41,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
     if (id != null) {
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => HomePageScreen()));
+          context, MaterialPageRoute(builder: (context) => MainApp()));
       return;
     } else {
       Navigator.pushReplacement(

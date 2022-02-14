@@ -46,7 +46,7 @@ class AppUser {
 
   static AppUser userFromMap(Map<String, dynamic> data) {
     return AppUser(
-        joinDate: data['joinDate'] ?? DateTime.now(),
+        joinDate: DateTime.parse(data['joinDate']),
         name: data['name'],
         id: data['id'],
         email: data['email'],

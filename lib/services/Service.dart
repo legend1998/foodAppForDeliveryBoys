@@ -11,7 +11,6 @@ class Service {
       var box = await Hive.openBox('testBox');
 
       CollectionReference users = firestore.collection("user");
-      CollectionReference useractivity = firestore.collection("userActivity");
 
       QuerySnapshot result;
 
@@ -29,23 +28,13 @@ class Service {
             id: uid);
 
         await users.doc(uid).set(appuser.userAsMap());
-        await useractivity.doc(uid).set({
-          "activity": [],
-          "coins": [
-            {
-              "messsage": "sign in coins",
-              "coins": 1000,
-              "time": new DateTime.now().toString()
-            }
-          ]
-        });
+
         var userid = (await users.doc(uid).get()).id;
         box.put('userid', userid);
 
         return "new";
       } else {
         print(user.phoneNumber);
-
         var doc = result.docs[0];
         print(doc.id);
         await box.put('userid', doc.id);

@@ -1,8 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:smartdelivery/HomePageScreen.dart';
 import 'package:smartdelivery/SplashScreen.dart';
 
 Future<void> main() async {
@@ -41,15 +39,13 @@ class MyApp extends StatelessWidget {
           primaryColorLight: Colors.pink,
           primaryColorDark: Colors.black,
           canvasColor: Colors.white,
-          accentColor: Color(0xff457BE0),
-          accentColorBrightness: Brightness.light,
           scaffoldBackgroundColor: Colors.white,
           bottomAppBarColor: Colors.pink[600],
           cardColor: Colors.white,
           dividerColor: Color(0x1f6D42CE),
           focusColor: Color(0x1aF5E0C3),
           appBarTheme: AppBarTheme(backgroundColor: Colors.white)),
-      home: HomePageScreen(),
+      home: SplashScreen(),
     );
   }
 }

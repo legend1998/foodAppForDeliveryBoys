@@ -6,14 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:smartdelivery/services/Service.dart';
 import 'package:smartdelivery/services/fun.dart';
 
-class HomePageScreen extends StatefulWidget {
-  const HomePageScreen({Key? key}) : super(key: key);
+class DeliveryPage extends StatefulWidget {
+  const DeliveryPage({Key? key}) : super(key: key);
 
   @override
-  _HomePageScreenState createState() => _HomePageScreenState();
+  _DeliveryPageState createState() => _DeliveryPageState();
 }
 
-class _HomePageScreenState extends State<HomePageScreen> {
+class _DeliveryPageState extends State<DeliveryPage> {
   PageController pc = PageController();
   int currentPage = 0;
   List newOrder = [];
@@ -26,7 +26,9 @@ class _HomePageScreenState extends State<HomePageScreen> {
     //restaurantId
     var orderStream = FirebaseFirestore.instance
         .collection("orders")
-        .where("delivered_by", whereIn: ["not_assigned", _user]).snapshots();
+        .where("delivered_by", isEqualTo: _user)
+        .where("delivery_Status", isEqualTo: "delivered")
+        .snapshots();
 
     cancelStream = orderStream.listen((event) {
       print(event.docs.length);
@@ -65,7 +67,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                   SizedBox(
                     height: 30,
                   ),
-                  Center(child: Text("Orders")),
+                  Center(child: Text("Deliveries")),
                   Container(
                     height: 40,
                     child: Row(
@@ -76,7 +78,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                             pc.jumpToPage(0);
                           },
                           child: Text(
-                            "New Orders",
+                            "Today",
                             style: TextStyle(
                                 fontWeight: currentPage == 0
                                     ? FontWeight.w500
@@ -88,21 +90,9 @@ class _HomePageScreenState extends State<HomePageScreen> {
                             pc.jumpToPage(1);
                           },
                           child: Text(
-                            "Picking",
+                            "All",
                             style: TextStyle(
                                 fontWeight: currentPage == 1
-                                    ? FontWeight.w500
-                                    : FontWeight.w300),
-                          ),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            pc.jumpToPage(2);
-                          },
-                          child: Text(
-                            "Delivered",
-                            style: TextStyle(
-                                fontWeight: currentPage == 2
                                     ? FontWeight.w500
                                     : FontWeight.w300),
                           ),
@@ -124,12 +114,22 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     children: [
                       ListView(
                           children: newOrder
-                              .where((element) =>
-                                  element["delivered_by"] == "not_assigned")
+                              .where((element) {
+                                var today =
+                                    DateTime.parse(element["orderTime"]);
+                                var oldtime = DateTime.now();
+
+                                oldtime = new DateTime(
+                                    oldtime.year, oldtime.month, oldtime.day);
+                                if (oldtime.difference(today).inMinutes > 0)
+                                  return true;
+                                else
+                                  return false;
+                              })
                               .map(
                                 (e) => ListTile(
                                   onTap: () {
-                                    showOrderDetail(context, e, _user);
+                                    afterDelivery(context, e);
                                   },
                                   leading: CircleAvatar(
                                     backgroundImage: CachedNetworkImageProvider(
@@ -143,13 +143,10 @@ class _HomePageScreenState extends State<HomePageScreen> {
                               .toList()),
                       ListView(
                         children: newOrder
-                            .where((element) =>
-                                (element["delivered_by"] == _user &&
-                                    element["delivery_Status"] == "new"))
                             .map(
                               (e) => ListTile(
                                 onTap: () {
-                                  deliveryConfirm(context, e, _user);
+                                  afterDelivery(context, e);
                                 },
                                 leading: CircleAvatar(
                                   backgroundImage: CachedNetworkImageProvider(
@@ -162,27 +159,6 @@ class _HomePageScreenState extends State<HomePageScreen> {
                             )
                             .toList(),
                       ),
-                      ListView(
-                          children: newOrder
-                              .where((element) => (element["delivered_by"] ==
-                                      _user &&
-                                  element["delivery_Status"] == "delivered"))
-                              .map(
-                                (e) => ListTile(
-                                  onTap: () {
-                                    //do nothing
-                                    afterDelivery(context, e);
-                                  },
-                                  leading: CircleAvatar(
-                                    backgroundImage: CachedNetworkImageProvider(
-                                        e["ordersTotal"][0]["imageUrl"]),
-                                  ),
-                                  subtitle: Text("items : " +
-                                      e["ordersTotal"].length.toString()),
-                                  title: Text(e["ordered_by"]),
-                                ),
-                              )
-                              .toList()),
                     ],
                   ))
                 ],

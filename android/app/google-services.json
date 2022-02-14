@@ -1,33 +1,115 @@
 {
   "project_info": {
-    "project_number": "353711695219",
-    "project_id": "smartfood-ce8df",
-    "storage_bucket": "smartfood-ce8df.appspot.com"
+    "project_number": "975540639868",
+    "project_id": "smartfood-485be",
+    "storage_bucket": "smartfood-485be.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:353711695219:android:9dffaf28d9e081631d5106",
+        "mobilesdk_app_id": "1:975540639868:android:008a7c05e682b41f4311f9",
         "android_client_info": {
           "package_name": "com.example.smartdelivery"
         }
       },
       "oauth_client": [
         {
-          "client_id": "353711695219-4ike90cepnme2lkhb68374dqr9agkasr.apps.googleusercontent.com",
+          "client_id": "975540639868-j51nos1a3igb6i5c2jm11mof21deng2u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.smartdelivery",
+            "certificate_hash": "6d46d7629b459dfbf94055e7d0478b435ba81a18"
+          }
+        },
+        {
+          "client_id": "975540639868-on44gpcgn5crhuio1jb5hhascvb42qer.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCdFVEJ1tD5TFDGxC5cbokccnoNBGSa0ic"
+          "current_key": "AIzaSyCJKXJ4ZJDheP6OTp1YWHx1TMPp_4Fq4DQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "353711695219-4ike90cepnme2lkhb68374dqr9agkasr.apps.googleusercontent.com",
+              "client_id": "975540639868-on44gpcgn5crhuio1jb5hhascvb42qer.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:975540639868:android:f19a1bda9b65e10d4311f9",
+        "android_client_info": {
+          "package_name": "com.example.smartfood"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "975540639868-oplfu50vqse6de5rsoetstk5bdbkpptl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.smartfood",
+            "certificate_hash": "6c81e4a2aaa8f5a3d27b9300425ee537461ac86f"
+          }
+        },
+        {
+          "client_id": "975540639868-on44gpcgn5crhuio1jb5hhascvb42qer.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJKXJ4ZJDheP6OTp1YWHx1TMPp_4Fq4DQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "975540639868-on44gpcgn5crhuio1jb5hhascvb42qer.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:975540639868:android:63ce903e9b01cae24311f9",
+        "android_client_info": {
+          "package_name": "com.example.smartrestaurant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "975540639868-5nnpaurmb9rs25dr8ics5v7n32f9rc1q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.smartrestaurant",
+            "certificate_hash": "6c81e4a2aaa8f5a3d27b9300425ee537461ac86f"
+          }
+        },
+        {
+          "client_id": "975540639868-on44gpcgn5crhuio1jb5hhascvb42qer.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJKXJ4ZJDheP6OTp1YWHx1TMPp_4Fq4DQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "975540639868-on44gpcgn5crhuio1jb5hhascvb42qer.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
